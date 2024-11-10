@@ -34,6 +34,7 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.foodies.core_ui.navigation.Route
 import com.foodies.core_ui.ui_components.AppButton
+import com.foodies.core_ui.ui_components.ProductItem
 import com.foodies.feature_catalog.R
 import com.google.gson.Gson
 import kotlinx.coroutines.launch

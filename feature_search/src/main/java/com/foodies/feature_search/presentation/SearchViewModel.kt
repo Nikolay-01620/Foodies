@@ -22,11 +22,46 @@ class SearchViewModel @Inject constructor(
     private val _productList = MutableStateFlow<List<Product>>(emptyList())
     val productList: StateFlow<List<Product>> = _productList.asStateFlow()
 
+    private val _currentPrice = MutableStateFlow<String>("")
+    val currentPrice: StateFlow<String> = _currentPrice.asStateFlow()
+
 
     init {
         viewModelScope.launch {
           /*  allProducts = remoteRepository.getProducts().map { it.toProduct() }
             _filteredProducts.value = allProducts*/
+        }
+    }
+
+
+    fun incItemsCount(product: Product) {
+        val productList = _productList.value.toMutableList()
+        val index = productList.indexOf(product)
+        val newProduct = product.copy(count = product.count + 1)
+        productList[index] = newProduct
+        _productList.value = productList
+        getPriceSum()
+    }
+
+    fun decItemsCount(
+         product: Product
+    ) {
+        val productList = _productList.value.toMutableList()
+        val index = productList.indexOf(product)
+        val newProduct = product.copy(count = product.count - 1)
+
+        productList[index] = newProduct
+        _productList.value = productList
+        getPriceSum()
+    }
+
+    private fun getPriceSum() {
+        viewModelScope.launch {
+            var finalPrice = 0
+             _productList.value.forEach { product ->
+                   finalPrice += product.priceCurrent * product.count
+            }
+             _currentPrice.value = finalPrice.toString()
         }
     }
 

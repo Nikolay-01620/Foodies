@@ -114,7 +114,7 @@ fun ProductDetailsScreen(navController: NavController, detailsViewModel: Details
             }
             AppButton(
                 onButtonClick = {
-                    //detailsViewModel.addItem(product ?: return@AppButton)
+                    detailsViewModel.addItem(product ?: return@AppButton)
                     navController.navigate(
                         route =
                         Route.BasketScreen.route

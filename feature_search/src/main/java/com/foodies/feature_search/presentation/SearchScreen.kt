@@ -46,7 +46,7 @@ fun SearchScreen(
     val keyboardController = LocalSoftwareKeyboardController.current
     val focusManager = LocalFocusManager.current
     var isButtonVisible by remember { mutableStateOf(false) }
-    //val currentPriceSum by searchViewModel.currentPrice.collectAsState()
+    val currentPriceSum by searchViewModel.currentPrice.collectAsState()
 
 
     Column(
@@ -109,13 +109,13 @@ fun SearchScreen(
                             navController.navigate(route = Route.DetailsScreen.route + "/$jsonString")
                         },
                         onPlusClick = {
-                            //searchViewModel.incItemsCount(catalogProduct)
+                            searchViewModel.incItemsCount(catalogProduct)
                         },
                         onMinusClick = {
                             if (catalogProduct.count <= 1) {
                                 isButtonVisible = false
                             }
-                            //searchViewModel.decItemsCount(catalogProduct)
+                            searchViewModel.decItemsCount(catalogProduct)
                         },
                         onPriceClick = { isButtonVisible = true }
                     )
@@ -125,16 +125,16 @@ fun SearchScreen(
         if (isButtonVisible) {
             AppButton(
                 onButtonClick = {
-                    /*catalogProducts.forEach {
+                    catalogProducts.forEach {
                         if (it.count > 0) {
                             searchViewModel.incItemsCount(it)
                         }
-                    }*/
+                    }
                     navController.navigate(Route.BasketScreen.route)
                 },
                 text = stringResource(
                     id = R.string.in_cart_button_label,
-                    //currentPriceSum
+                    currentPriceSum
                 )
             )
         }
