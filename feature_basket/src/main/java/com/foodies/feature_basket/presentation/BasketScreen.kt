@@ -52,7 +52,6 @@ fun BasketScreen(
             .fillMaxSize()
             .background(Color.White)
     ) {
-
         Row(
             modifier = Modifier
                 .fillMaxWidth()
