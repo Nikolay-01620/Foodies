@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="fats_measurements" />
+    <string name="in_cart_button_label" />
+    <string name="energy_value_measurements" />
+    <string name="weight" />
+    <string name="energy_value" />
+    <string name="proteins" />
+    <string name="fats" />
+    <string name="carbohydrates" />
+</resources>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="in_cart_button_label" />
+    <string name="item_image" />
+    <string name="remove_item" />
+    <string name="item_price">%1$s ₽</string>
+</resources>

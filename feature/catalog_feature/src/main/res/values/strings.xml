@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="done_button_label">Готово</string>
+    <string name="in_cart_button_label">"В корзину за %1$s ₽"</string>
+    <string name="remove_item">Remove item</string>
+    <string name="item_image">Item image</string>
+    <string name="item_price">%1$s ₽</string>
+    <string name="add_item">Add item</string>
+</resources>
