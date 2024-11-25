@@ -19,6 +19,8 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import com.foodies.core_ui.route.Route
 import com.foodies.details_feature.model.ProductDetails
@@ -31,8 +33,14 @@ import com.google.gson.reflect.TypeToken
 import java.lang.reflect.Type
 
 @Composable
-fun DetailsScreen(navController: NavController, detailsViewModel: DetailsViewModel) {
+fun DetailsScreen(
+    navController: NavController,
+    viewModelFactory: ViewModelProvider.Factory
+) {
 
+    val detailsViewModel: DetailsViewModel = viewModel(
+        factory = viewModelFactory
+    )
     val descriptions = listOf(
         Description.WEIGHT,
         Description.ENERGY_VALUE,
@@ -86,7 +94,7 @@ fun DetailsScreen(navController: NavController, detailsViewModel: DetailsViewMod
                             product?.measure.toString()
                         )
 
-                            Description.ENERGY_VALUE -> stringResource(
+                        Description.ENERGY_VALUE -> stringResource(
                             id = R.string.energy_value_measurements,
                             product?.energyPer100Grams.toString()
                         )

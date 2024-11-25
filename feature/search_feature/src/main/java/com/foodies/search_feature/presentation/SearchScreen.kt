@@ -22,6 +22,8 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import com.foodies.core_ui.route.Route
 import com.foodies.core_ui.ui.components.catalog.basic.ProductGrid
@@ -34,8 +36,12 @@ import com.foodies.search_feature.utils.toProductSearch
 @Composable
 fun SearchScreen(
     navController: NavController,
-    searchViewModel: SearchViewModel,
+    viewModelFactory: ViewModelProvider.Factory
 ) {
+
+    val searchViewModel: SearchViewModel = viewModel(
+        factory = viewModelFactory
+    )
 
     val searchProducts by searchViewModel.productList.collectAsState()
     var searchQuery by remember { mutableStateOf("") }

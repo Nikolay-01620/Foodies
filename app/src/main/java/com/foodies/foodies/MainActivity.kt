@@ -19,11 +19,6 @@ class MainActivity : ComponentActivity() {
 
     @Inject
     lateinit var viewModelProvider: ViewModelProvider.Factory
-    private val catalogViewModel: CatalogViewModel by viewModels { viewModelProvider }
-    private val basketViewModel: BasketViewModel by viewModels { viewModelProvider }
-    private val searchViewModel: SearchViewModel by viewModels { viewModelProvider }
-    private val detailsViewModel: DetailsViewModel by viewModels { viewModelProvider }
-    private val baseViewModel: BaseViewModel by viewModels { viewModelProvider }
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,14 +26,11 @@ class MainActivity : ComponentActivity() {
         inject((application as App))
         setContent {
             NavHost(
-                catalogViewModel = catalogViewModel,
-                basketViewModel = basketViewModel,
-                searchViewModel = searchViewModel,
-                detailsViewModel = detailsViewModel,
-                baseViewModel = baseViewModel
+                viewModelFactory = viewModelProvider
             )
         }
     }
+
     private fun inject(app: App) {
         MainActivityComponent.init(app.getApplicationProvider(), application)
             .inject(this)

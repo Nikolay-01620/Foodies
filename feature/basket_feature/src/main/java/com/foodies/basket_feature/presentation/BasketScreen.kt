@@ -34,6 +34,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import com.foodies.core_ui.ui.GreyBg
 import com.foodies.core_ui.ui.OrangePrimary
@@ -44,9 +46,12 @@ import com.foodies.basket_feature.model.ProductBasket
 @Composable
 fun BasketScreen(
     navController: NavController,
-    basketViewModel: BasketViewModel,
-    baseViewModel: BaseViewModel
+    viewModelFactory: ViewModelProvider.Factory
 ) {
+
+    val basketViewModel: BasketViewModel = viewModel(
+        factory = viewModelFactory
+    )
 
     val basketItems by basketViewModel.basketItems.collectAsState()
     val currentPrice by basketViewModel.currentPrice.collectAsState()

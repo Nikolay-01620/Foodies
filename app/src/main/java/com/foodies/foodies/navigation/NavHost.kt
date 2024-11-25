@@ -1,6 +1,7 @@
 package com.foodies.foodies.navigation
 
 import androidx.compose.runtime.Composable
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavHostController
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
@@ -22,23 +23,18 @@ import com.foodies.splash_feature.presentation.SplashScreen
 @Composable
 fun NavHost(
     navController: NavHostController = rememberNavController(),
-    catalogViewModel: CatalogViewModel,
-    basketViewModel: BasketViewModel,
-    searchViewModel: SearchViewModel,
-    detailsViewModel: DetailsViewModel,
-    baseViewModel: BaseViewModel
+    viewModelFactory: ViewModelProvider.Factory
 ) {
 
     NavHost(navController = navController, startDestination = Route.SplashScreen.route) {
 
         composable(Route.SplashScreen.route) {
-           SplashScreen(navController = navController)
+            SplashScreen(navController = navController)
         }
         composable(Route.CatalogScreen.route) {
             CatalogScreen(
                 navController = navController,
-                catalogViewModel = catalogViewModel,
-                baseViewModel = baseViewModel
+                viewModelFactory = viewModelFactory
             )
 
         }
@@ -48,19 +44,21 @@ fun NavHost(
                 type = NavType.StringType
             })
         ) {
-            DetailsScreen(navController = navController, detailsViewModel = detailsViewModel)
+            DetailsScreen(
+                navController = navController,
+                viewModelFactory = viewModelFactory
+            )
         }
         composable(Route.BasketScreen.route) {
             BasketScreen(
                 navController = navController,
-                basketViewModel = basketViewModel,
-                baseViewModel = baseViewModel
+                viewModelFactory = viewModelFactory
             )
         }
         composable(Route.SearchScreen.route) {
             SearchScreen(
                 navController = navController,
-                searchViewModel = searchViewModel,
+                viewModelFactory = viewModelFactory
             )
         }
     }
