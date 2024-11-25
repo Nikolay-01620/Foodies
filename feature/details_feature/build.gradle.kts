@@ -1,6 +1,8 @@
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
+    id("kotlin-kapt")
+
 
 }
 
@@ -62,7 +64,7 @@ dependencies {
 
     // Dagger 2
     implementation("com.google.dagger:dagger:2.48")
-    annotationProcessor("com.google.dagger:dagger-compiler:2.48")
+    kapt("com.google.dagger:dagger-compiler:2.48")
 
     //Gson
     implementation ("com.google.code.gson:gson:2.10.1")

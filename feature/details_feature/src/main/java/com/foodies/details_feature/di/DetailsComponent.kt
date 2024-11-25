@@ -15,7 +15,7 @@ import dagger.Component
 )
 interface DetailsComponent {
 
-  /*  companion object {
+    companion object {
         fun init(
             applicationProvider: ApplicationProvider
         )
@@ -24,8 +24,7 @@ interface DetailsComponent {
                 .create(applicationProvider)
 
         }
-
-    }*/
+    }
 
     @Component.Factory
     interface Factory {
