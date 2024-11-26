@@ -35,11 +35,11 @@ import java.lang.reflect.Type
 @Composable
 fun DetailsScreen(
     navController: NavController,
-    viewModelFactory: ViewModelProvider.Factory
+    viewModelProvider: ViewModelProvider.Factory
 ) {
 
     val detailsViewModel: DetailsViewModel = viewModel(
-        factory = viewModelFactory
+        factory = viewModelProvider
     )
     val descriptions = listOf(
         Description.WEIGHT,

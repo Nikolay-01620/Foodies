@@ -38,11 +38,14 @@ import com.foodies.catalog_feature.utils.toTagInAppCatalog
 @Composable
 fun CatalogScreen(
     navController: NavController = rememberNavController(),
-    viewModelFactory: ViewModelProvider.Factory
+    viewModelProvider: ViewModelProvider.Factory
 ) {
 
     val catalogViewModel: CatalogViewModel = viewModel(
-        factory = viewModelFactory
+        factory = viewModelProvider
+    )
+    val basicViewModel: BaseViewModel = viewModel(
+        factory = viewModelProvider
     )
     LaunchedEffect(key1 = Unit) {
         catalogViewModel.getProducts()
@@ -94,7 +97,7 @@ fun CatalogScreen(
                 onButtonClick = {
                     productsList.forEach {
                         if (it.count > 0) {
-                            catalogViewModel.addItem(it)
+                            basicViewModel.addItem(it.toProduct())
                         }
                     }
                     navController.navigate(Route.BasketScreen.route)

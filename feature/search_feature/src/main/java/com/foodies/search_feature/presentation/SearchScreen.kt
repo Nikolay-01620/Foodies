@@ -32,15 +32,14 @@ import com.foodies.feature_search.R
 import com.foodies.search_feature.utils.toProduct
 import com.foodies.search_feature.utils.toProductSearch
 
-@OptIn(ExperimentalComposeUiApi::class)
 @Composable
 fun SearchScreen(
     navController: NavController,
-    viewModelFactory: ViewModelProvider.Factory
+    viewModelProvider: ViewModelProvider.Factory
 ) {
 
     val searchViewModel: SearchViewModel = viewModel(
-        factory = viewModelFactory
+        factory = viewModelProvider
     )
 
     val searchProducts by searchViewModel.productList.collectAsState()

@@ -3,6 +3,7 @@ package com.foodies.core.di.network
 import dagger.Component
 import javax.inject.Singleton
 
+/*
 @Singleton
 @Component(
     modules = [
@@ -18,4 +19,4 @@ interface NetworkComponent: NetworkProvider {
             return DaggerNetworkComponent.builder().build()
         }
     }
-}
+}*/

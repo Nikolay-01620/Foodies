@@ -39,18 +39,17 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import com.foodies.core_ui.ui.GreyBg
 import com.foodies.core_ui.ui.OrangePrimary
-import com.foodies.core_ui.view_model.BaseViewModel
 import com.foodies.feature_basket.R
 import com.foodies.basket_feature.model.ProductBasket
 
 @Composable
 fun BasketScreen(
     navController: NavController,
-    viewModelFactory: ViewModelProvider.Factory
+    viewModelProvider: ViewModelProvider.Factory
 ) {
 
     val basketViewModel: BasketViewModel = viewModel(
-        factory = viewModelFactory
+        factory = viewModelProvider
     )
 
     val basketItems by basketViewModel.basketItems.collectAsState()
