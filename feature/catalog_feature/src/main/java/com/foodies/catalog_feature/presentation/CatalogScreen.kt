@@ -23,10 +23,10 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.foodies.core_ui.route.Route
 import com.foodies.feature_catalog.R
-import com.foodies.core_ui.ui.components.catalog.basic.CategoriesLine
-import com.foodies.core_ui.ui.components.catalog.basic.Header
-import com.foodies.core_ui.ui.components.catalog.basic.ProductGrid
-import com.foodies.core_ui.ui.components.catalog.other.AppButton
+import com.foodies.core_ui.ui.components.basic.CategoriesLine
+import com.foodies.core_ui.ui.components.basic.Header
+import com.foodies.core_ui.ui.components.basic.ProductGrid
+import com.foodies.core_ui.ui.components.other.AppButton
 import com.foodies.core_ui.view_model.BaseViewModel
 import com.foodies.catalog_feature.utils.toCategory
 import com.foodies.catalog_feature.utils.toCategoryCatalog

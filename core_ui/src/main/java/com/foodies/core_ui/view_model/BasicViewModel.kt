@@ -13,6 +13,8 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
+// ОБЩАЯ ВЬЮМОДЕЛЬ В ПРОЦЕССЕ РЕАЛИЗАЦИИ
+
 class BaseViewModel @Inject constructor(private val localRepository: LocalRepository) :
     ViewModel() {
 

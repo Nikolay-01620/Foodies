@@ -13,7 +13,6 @@ import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
-import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalFocusManager
@@ -26,8 +25,8 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import com.foodies.core_ui.route.Route
-import com.foodies.core_ui.ui.components.catalog.basic.ProductGrid
-import com.foodies.core_ui.ui.components.catalog.other.AppButton
+import com.foodies.core_ui.ui.components.basic.ProductGrid
+import com.foodies.core_ui.ui.components.other.AppButton
 import com.foodies.feature_search.R
 import com.foodies.search_feature.utils.toProduct
 import com.foodies.search_feature.utils.toProductSearch

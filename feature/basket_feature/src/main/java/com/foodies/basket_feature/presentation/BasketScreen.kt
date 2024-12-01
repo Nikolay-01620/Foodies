@@ -77,7 +77,7 @@ fun BasketScreen(
 
             Text(
                 modifier = Modifier.padding(start = 10.dp),
-                text = "Корзина",
+                text = stringResource(R.string.basket),
                 fontWeight = FontWeight.W600,
                 fontSize = 18.sp
             )

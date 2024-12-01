@@ -6,7 +6,7 @@ import dagger.Module
 
 @Module
 interface NavigationModule {
+
     @Binds
     fun bindRouter(navHost: NavHost): NavHost
-
 }

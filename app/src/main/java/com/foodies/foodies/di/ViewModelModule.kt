@@ -41,5 +41,4 @@ interface ViewModelModule {
     @ViewModelKey(BaseViewModel::class)
     fun bindBaseViewModel(viewModel: BaseViewModel): ViewModel
 
-
 }

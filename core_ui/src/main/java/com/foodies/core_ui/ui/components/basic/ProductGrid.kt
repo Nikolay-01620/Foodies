@@ -1,4 +1,4 @@
-package com.foodies.core_ui.ui.components.catalog.basic
+package com.foodies.core_ui.ui.components.basic
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.padding
