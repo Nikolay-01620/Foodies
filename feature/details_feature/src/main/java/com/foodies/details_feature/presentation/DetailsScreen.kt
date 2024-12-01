@@ -23,11 +23,11 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import com.foodies.core_ui.route.Route
+import com.foodies.core_ui.ui.components.other.AppButton
 import com.foodies.details_feature.model.ProductDetails
-import com.foodies.feature_details.R
-import com.foodies.details_feature.presentation.components.AppButton
 import com.foodies.details_feature.presentation.components.Description
 import com.foodies.details_feature.presentation.components.ItemDescription
+import com.foodies.feature_details.R
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import java.lang.reflect.Type
@@ -35,11 +35,11 @@ import java.lang.reflect.Type
 @Composable
 fun DetailsScreen(
     navController: NavController,
-    viewModelFactory: ViewModelProvider.Factory
+    viewModelProvider: ViewModelProvider.Factory
 ) {
 
     val detailsViewModel: DetailsViewModel = viewModel(
-        factory = viewModelFactory
+        factory = viewModelProvider
     )
     val descriptions = listOf(
         Description.WEIGHT,

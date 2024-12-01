@@ -1,4 +1,4 @@
-package com.foodies.core_ui.ui.components.catalog.basic
+package com.foodies.core_ui.ui.components.basic
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable

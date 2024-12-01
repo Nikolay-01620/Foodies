@@ -9,21 +9,16 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.foodies.basket_feature.presentation.BasketScreen
-import com.foodies.basket_feature.presentation.BasketViewModel
 import com.foodies.catalog_feature.presentation.CatalogScreen
-import com.foodies.catalog_feature.presentation.CatalogViewModel
 import com.foodies.core_ui.route.Route
-import com.foodies.core_ui.view_model.BaseViewModel
 import com.foodies.details_feature.presentation.DetailsScreen
-import com.foodies.details_feature.presentation.DetailsViewModel
 import com.foodies.search_feature.presentation.SearchScreen
-import com.foodies.search_feature.presentation.SearchViewModel
 import com.foodies.splash_feature.presentation.SplashScreen
 
 @Composable
 fun NavHost(
     navController: NavHostController = rememberNavController(),
-    viewModelFactory: ViewModelProvider.Factory
+    viewModelProvider: ViewModelProvider.Factory
 ) {
 
     NavHost(navController = navController, startDestination = Route.SplashScreen.route) {
@@ -34,7 +29,7 @@ fun NavHost(
         composable(Route.CatalogScreen.route) {
             CatalogScreen(
                 navController = navController,
-                viewModelFactory = viewModelFactory
+                viewModelProvider = viewModelProvider
             )
 
         }
@@ -46,19 +41,19 @@ fun NavHost(
         ) {
             DetailsScreen(
                 navController = navController,
-                viewModelFactory = viewModelFactory
+                viewModelProvider = viewModelProvider
             )
         }
         composable(Route.BasketScreen.route) {
             BasketScreen(
                 navController = navController,
-                viewModelFactory = viewModelFactory
+                viewModelProvider = viewModelProvider
             )
         }
         composable(Route.SearchScreen.route) {
             SearchScreen(
                 navController = navController,
-                viewModelFactory = viewModelFactory
+                viewModelProvider = viewModelProvider
             )
         }
     }

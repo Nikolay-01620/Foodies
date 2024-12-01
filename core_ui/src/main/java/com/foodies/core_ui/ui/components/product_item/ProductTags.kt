@@ -1,4 +1,4 @@
-package com.foodies.core_ui.ui.components.catalog.product_item
+package com.foodies.core_ui.ui.components.product_item
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Row

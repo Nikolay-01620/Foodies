@@ -1,6 +1,7 @@
 package com.foodies.core.di.network
 
-interface NetworkProvider {
-    fun provideRetrofit(): IRetrofitProvider
+import com.foodies.core.source.FoodiesService
 
+interface NetworkProvider {
+    fun getFoodiesService(): FoodiesService
 }

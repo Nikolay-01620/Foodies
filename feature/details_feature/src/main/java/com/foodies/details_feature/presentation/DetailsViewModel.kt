@@ -17,10 +17,7 @@ class DetailsViewModel @Inject constructor(private val localRepository: LocalRep
     ViewModel() {
 
     private val _detailsItems = MutableStateFlow<List<ProductDetails>>(emptyList())
-    val basketItems: StateFlow<List<ProductDetails>> = _detailsItems.asStateFlow()
-
     private val _currentPrice = MutableStateFlow("")
-    val currentPrice: StateFlow<String> = _currentPrice.asStateFlow()
 
     init {
         getItems()

@@ -10,7 +10,7 @@ import java.io.IOException
 import javax.inject.Inject
 
 /**
- * Основной класс для создания Retrofit объектов запроса в API Rick and Morty
+ * Основной класс для создания Retrofit объектов запроса в API
  */
 class RetrofitImpl @Inject constructor() : IRetrofitProvider {
 
@@ -22,11 +22,9 @@ class RetrofitImpl @Inject constructor() : IRetrofitProvider {
         return Retrofit.Builder()
             .baseUrl(baseUrl)
             .addConverterFactory(GsonConverterFactory.create())
-            // .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
             .client(createOkHttpClient(MyInterceptor()))
             .build()
     }
-
 
     private fun createOkHttpClient(interceptor: Interceptor): OkHttpClient {
         val httpClient = OkHttpClient.Builder().let {
@@ -43,6 +41,4 @@ class RetrofitImpl @Inject constructor() : IRetrofitProvider {
             return chain.proceed(chain.request())
         }
     }
-
-
 }

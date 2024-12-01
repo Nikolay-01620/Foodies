@@ -15,18 +15,6 @@ import dagger.Component
 )
 interface SearchComponent {
 
-    companion object {
-        fun init(
-            applicationProvider: ApplicationProvider
-        )
-                : SearchComponent {
-            return DaggerSearchComponent.factory()
-                .create(applicationProvider)
-
-        }
-
-    }
-
     @Component.Factory
     interface Factory {
         fun create(

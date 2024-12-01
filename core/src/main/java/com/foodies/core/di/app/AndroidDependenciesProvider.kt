@@ -9,4 +9,6 @@ interface AndroidDependenciesProvider {
     fun provideContext(): Context
 
     fun provideResources(): Resources
+
+    fun provideAppContext(): Application
 }

@@ -14,6 +14,4 @@ interface BasketViewModelModule {
     @IntoMap
     @ViewModelKey(BasketViewModel::class)
     fun bindBasketViewModel(viewModel: BasketViewModel): ViewModel
-
-
 }

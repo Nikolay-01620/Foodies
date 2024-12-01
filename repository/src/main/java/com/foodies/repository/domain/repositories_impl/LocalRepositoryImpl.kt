@@ -17,9 +17,9 @@ import javax.inject.Inject
 
 class LocalRepositoryImpl @Inject constructor(private val sharedPreferences: SharedPreferences) :
     LocalRepository {
-    val type: Type = object : TypeToken<List<ProductResponse>>() {}.type
 
-    val gson = Gson()
+    private val type: Type = object : TypeToken<List<ProductResponse>>() {}.type
+    private val gson = Gson()
 
     companion object {
         const val GET_PRODUCT_KEY = "getProduct"

@@ -66,6 +66,14 @@ dependencies {
     implementation("com.google.dagger:dagger:2.48")
     kapt("com.google.dagger:dagger-compiler:2.48")
 
+    // Retrofit
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    // Retrofit with Scalar Converter
+    implementation("com.squareup.retrofit2:converter-scalars:2.9.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+
+    // Interceptor
+    implementation ("com.squareup.okhttp3:logging-interceptor:4.9.2")
 
     //Test
     testImplementation("junit:junit:4.13.2")
@@ -79,11 +87,9 @@ dependencies {
     //Compose_navigation
     implementation("androidx.navigation:navigation-compose:2.7.7")
 
-
     implementation(project(":core_ui"))
     implementation(project(":core"))
     implementation(project(":repository"))
-
 
     implementation(project(":feature:basket_feature"))
     implementation(project(":feature:catalog_feature"))

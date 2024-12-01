@@ -14,6 +14,4 @@ interface CatalogViewModelModule {
     @IntoMap
     @ViewModelKey(CatalogViewModel::class)
     fun bindCatalogViewModel(viewModel: CatalogViewModel): ViewModel
-
-
 }

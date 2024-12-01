@@ -23,10 +23,10 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.foodies.core_ui.route.Route
 import com.foodies.feature_catalog.R
-import com.foodies.core_ui.ui.components.catalog.basic.CategoriesLine
-import com.foodies.core_ui.ui.components.catalog.basic.Header
-import com.foodies.core_ui.ui.components.catalog.basic.ProductGrid
-import com.foodies.core_ui.ui.components.catalog.other.AppButton
+import com.foodies.core_ui.ui.components.basic.CategoriesLine
+import com.foodies.core_ui.ui.components.basic.Header
+import com.foodies.core_ui.ui.components.basic.ProductGrid
+import com.foodies.core_ui.ui.components.other.AppButton
 import com.foodies.core_ui.view_model.BaseViewModel
 import com.foodies.catalog_feature.utils.toCategory
 import com.foodies.catalog_feature.utils.toCategoryCatalog
@@ -38,11 +38,14 @@ import com.foodies.catalog_feature.utils.toTagInAppCatalog
 @Composable
 fun CatalogScreen(
     navController: NavController = rememberNavController(),
-    viewModelFactory: ViewModelProvider.Factory
+    viewModelProvider: ViewModelProvider.Factory
 ) {
 
     val catalogViewModel: CatalogViewModel = viewModel(
-        factory = viewModelFactory
+        factory = viewModelProvider
+    )
+    val basicViewModel: BaseViewModel = viewModel(
+        factory = viewModelProvider
     )
     LaunchedEffect(key1 = Unit) {
         catalogViewModel.getProducts()
@@ -94,7 +97,7 @@ fun CatalogScreen(
                 onButtonClick = {
                     productsList.forEach {
                         if (it.count > 0) {
-                            catalogViewModel.addItem(it)
+                            basicViewModel.addItem(it.toProduct())
                         }
                     }
                     navController.navigate(Route.BasketScreen.route)

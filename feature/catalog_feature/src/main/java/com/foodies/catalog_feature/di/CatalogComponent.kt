@@ -15,18 +15,6 @@ import dagger.Component
 )
 interface CatalogComponent {
 
-    companion object {
-        fun init(
-            applicationProvider: ApplicationProvider
-        )
-                : CatalogComponent {
-            return DaggerCatalogComponent.factory()
-                .create(applicationProvider)
-
-        }
-
-    }
-
     @Component.Factory
     interface Factory {
         fun create(

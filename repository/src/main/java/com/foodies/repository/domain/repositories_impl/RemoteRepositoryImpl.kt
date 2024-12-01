@@ -14,8 +14,7 @@ import javax.inject.Inject
 
 class RemoteRepositoryImpl @Inject constructor(
     private val foodiesService: FoodiesService,
-) :
-    RemoteRepository {
+) : RemoteRepository {
     override suspend fun getProducts(): List<ProductDomain> {
         return withContext(Dispatchers.IO) {
             foodiesService.getProducts().map {

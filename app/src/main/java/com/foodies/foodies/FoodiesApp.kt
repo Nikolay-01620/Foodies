@@ -9,7 +9,6 @@ class FoodiesApp : Application(), App {
 
     private lateinit var appComponent: ApplicationProvider
 
-
     override fun onCreate() {
         super.onCreate()
         appComponent = ApplicationComponent.init(this)
@@ -18,5 +17,4 @@ class FoodiesApp : Application(), App {
     override fun getApplicationProvider(): ApplicationProvider {
         return appComponent
     }
-
 }

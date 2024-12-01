@@ -52,12 +52,6 @@ fun ProductCatalog.toProductDomain() = ProductDomain(
 
 )
 
-
-fun TagDomain.toTagCatalog() = TagCatalog(
-    id = id,
-    name = name
-)
-
 fun TagDomain.toTag() = Tag(
     id = id,
     name = name

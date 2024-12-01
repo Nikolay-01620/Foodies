@@ -48,11 +48,8 @@ class CatalogViewModel @Inject constructor(
     private var defaultProductList: List<ProductCatalog> = emptyList()
 
 
-
-
-
-
-
+    // ОБЩИЕ ФУНКЦИИ КОТОРЫЕ БУДУТ ВЫНОСИТЬСЯ В BasicViewModel
+////////////////////////////////////////////////////////////////////////////////////////////
 
     fun addItem(product: ProductCatalog) {
         viewModelScope.launch {
@@ -60,6 +57,7 @@ class CatalogViewModel @Inject constructor(
             getItems()
         }
     }
+
     private fun getItems() {
         viewModelScope.launch {
             val list = localRepository.getItems().map {
@@ -69,6 +67,7 @@ class CatalogViewModel @Inject constructor(
             setCartPrice()
         }
     }
+
     private fun setCartPrice() {
         viewModelScope.launch {
             var finalPrice = 0
@@ -78,12 +77,7 @@ class CatalogViewModel @Inject constructor(
             _currentPrice.value = finalPrice.toString()
         }
     }
-
-
-
-
-
-
+//////////////////////////////////////////////////////////////////////////////////////////////////
 
     fun getProducts() {
         viewModelScope.launch {
@@ -103,7 +97,6 @@ class CatalogViewModel @Inject constructor(
         }
     }
 
-
     fun setSelectedCategory(category: CategoryCatalog) {
         _selectedCategory.value = category
         filterProducts()
@@ -119,17 +112,6 @@ class CatalogViewModel @Inject constructor(
         }
     }
 
-
-    fun incItemsCountFake(product: ProductCatalog) {
-        val productList = _productList.value.toMutableList()
-        val index = productList.indexOf(product)
-        val newProduct = product.copy(count = product.count + 1)
-        productList[index] = newProduct
-        _productList.value = productList
-        getPriceSum()
-    }
-
-
     fun incItemsCount(product: ProductCatalog) {
         val productList = _productList.value.toMutableList()
         val index = productList.indexOf(product)
@@ -140,7 +122,6 @@ class CatalogViewModel @Inject constructor(
             getPriceSum()
         }
     }
-
 
     fun decItemsCount(
         product: ProductCatalog
@@ -184,7 +165,6 @@ class CatalogViewModel @Inject constructor(
         }
     }
 
-
     private fun filterProducts() {
         val category = _selectedCategory.value
         val tags = _selectedTags.value
@@ -193,47 +173,9 @@ class CatalogViewModel @Inject constructor(
             filteredByCategory
         } else {
             filteredByCategory.filter { product ->
-                if (tags.isEmpty()) {
-                    return@filter true
-                }
-                if (product.priceOld != null && tags.find { it.id == 0 } != null) {
-                    return@filter true
-                }
-                tags.forEach {
-                    if (product.tagIds.contains(it.id)) {
-                        return@filter true
-                    }
-                }
-                false
+                tags.any { product.tagIds.contains(it.id) }
             }
         }
         _productList.value = filteredByTags
     }
 }
-
-/* val filteredByTags = if (tags.isEmpty()) {
-    // Если теги не выбраны, возвращаем продукты, отфильтрованные только по категории
-    filteredByCategory
-} else {
-    // Иначе фильтруем продукты, отфильтрованные по категории, дополнительно по тегам
-    filteredByCategory.filter { product ->
-        // Проверка на наличие скидки и выбранный тег со скидкой
-        if (product.priceOld != null && tags.find { it.id == 0 } != null) {
-            return@filter true
-        }
-        // Проверка на соответствие продуктовых тегов выбранным тегам
-        tags.any { product.tagIds.contains(it.id) }
-    }
-}
-// Обновление списка продуктов
-_productList.value = filteredByTags*/
-
-
-/*val filteredByTags = if (tags.isEmpty()) {
-    filteredByCategory
-} else {
-    filteredByCategory.filter { product ->
-        tags.any { product.tagIds.contains(it.id) }
-    }
-}
-_productList.value = filteredByTags*/

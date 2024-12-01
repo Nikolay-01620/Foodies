@@ -1,4 +1,4 @@
-package com.foodies.core_ui.ui.components.catalog.product_item
+package com.foodies.core_ui.ui.components.product_item
 
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text

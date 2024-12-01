@@ -26,6 +26,7 @@ import javax.inject.Singleton
     ]
 )
 interface MainActivityComponent {
+
     companion object {
         fun init(applicationProvider: ApplicationProvider,application: Application): MainActivityComponent {
             return DaggerMainActivityComponent.factory()
