@@ -20,6 +20,7 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.ElevatedButton
 import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
@@ -90,7 +91,7 @@ fun BasketScreen(
                 BasketItem(
                     product = basketItem,
                     incItemsCount = basketViewModel::incItemsCount,
-                    decItemsCount = basketViewModel::decItemsCount
+                    decItemsCount = basketViewModel::decItemsCount,
                 )
             }
         }
@@ -100,12 +101,17 @@ fun BasketScreen(
             colors = ButtonDefaults.buttonColors(OrangePrimary),
             shape = RoundedCornerShape(size = 10.dp),
             onClick = {}) {
+
             Text(
-                text = stringResource(id = R.string.cart_order_button, currentPrice),
+                text = stringResource(
+                    id = R.string.cart_order_button,
+                    currentPrice.toIntOrNull()?.div(100) ?: 0
+                ),
                 fontSize = 16.sp,
                 fontWeight = FontWeight.W600
             )
         }
+
     }
 }
 
@@ -114,8 +120,7 @@ private fun BasketItem(
     product: ProductBasket,
     incItemsCount: (ProductBasket) -> Unit,
     decItemsCount: (ProductBasket) -> Unit,
-
-    ) {
+) {
     Column {
         Row(modifier = Modifier.fillMaxWidth()) {
 
@@ -180,7 +185,10 @@ private fun BasketItem(
                         modifier = Modifier
                             .weight(1f)
                             .padding(end = 16.dp),
-                        text = product.priceCurrent.toString(),
+                        text = stringResource(
+                            com.foodies.core_ui.R.string.item_price,
+                            product.priceCurrent * product.count / 100
+                        ),
                         textAlign = TextAlign.End
                     )
                 }

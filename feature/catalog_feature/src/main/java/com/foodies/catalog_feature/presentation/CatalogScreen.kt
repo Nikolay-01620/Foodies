@@ -1,5 +1,6 @@
 package com.foodies.catalog_feature.presentation
 
+import android.util.Log
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -103,8 +104,8 @@ fun CatalogScreen(
                     navController.navigate(Route.BasketScreen.route)
                 },
                 text = stringResource(
-                    id = R.string.in_cart_button_label,
-                    currentPriceSum
+                    R.string.in_cart_button_label,
+                    currentPriceSum.toInt() / 100
                 )
             )
         }
