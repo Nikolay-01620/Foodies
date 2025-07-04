@@ -2,7 +2,7 @@
 <resources>
     <string name="remove_item">Remove item</string>
     <string name="add_item">Add item</string>
-    <string name="cart_order_button">"Заказать за %1$s"</string>
+    <string name="cart_order_button">"Заказать за %1$s ₽"</string>
     <string name="basket">"Корзина"</string>
 
 </resources>
