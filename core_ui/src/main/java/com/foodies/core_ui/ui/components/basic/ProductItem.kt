@@ -1,4 +1,4 @@
-package com.foodies.core_ui.ui.components.catalog.basic
+package com.foodies.core_ui.ui.components.basic
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -22,10 +22,10 @@ import androidx.compose.ui.unit.dp
 import com.foodies.core_ui.R
 import com.foodies.core_ui.model.Product
 import com.foodies.core_ui.ui.GreyBg
-import com.foodies.core_ui.ui.components.catalog.product_item.PlusMinusButton
-import com.foodies.core_ui.ui.components.catalog.product_item.PriceButton
-import com.foodies.core_ui.ui.components.catalog.product_item.ProductTags
-import com.foodies.core_ui.ui.components.catalog.product_item.SaleTag
+import com.foodies.core_ui.ui.components.product_item.PlusMinusButton
+import com.foodies.core_ui.ui.components.product_item.PriceButton
+import com.foodies.core_ui.ui.components.product_item.ProductTags
+import com.foodies.core_ui.ui.components.product_item.SaleTag
 
 @Composable
 fun ProductItem(

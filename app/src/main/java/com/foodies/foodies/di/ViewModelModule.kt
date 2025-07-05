@@ -15,7 +15,6 @@ import dagger.multibindings.IntoMap
 @Module
 interface ViewModelModule {
 
-
     @Binds
     @IntoMap
     @ViewModelKey(DetailsViewModel::class)
@@ -41,6 +40,5 @@ interface ViewModelModule {
     @IntoMap
     @ViewModelKey(BaseViewModel::class)
     fun bindBaseViewModel(viewModel: BaseViewModel): ViewModel
-
 
 }

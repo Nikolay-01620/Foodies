@@ -7,12 +7,16 @@ import com.foodies.repository.domain.repository.RemoteRepository
 import dagger.Binds
 import dagger.Module
 import dagger.Provides
+import javax.inject.Singleton
 
 @Module
 interface RepositoriesModule {
+
+    @Singleton
     @Binds
     fun provideRemoteRepository(remoteRepositoryImpl: RemoteRepositoryImpl): RemoteRepository
 
+    @Singleton
     @Binds
     fun provideLocalRepository(localRepositoryImpl: LocalRepositoryImpl): LocalRepository
 

@@ -5,7 +5,6 @@ sealed class Route(
 ) {
     data object SplashScreen : Route(route = "splashScreen")
 
-
     data object CatalogScreen : Route(route = "catalogScreen")
 
     data object DetailsScreen : Route(route = "detailsScreen")

@@ -14,11 +14,8 @@ import javax.inject.Singleton
 interface AndroidDependenciesComponent: AndroidDependenciesProvider {
 
     companion object {
-
         fun create(app: Application): AndroidDependenciesProvider {
-
             val androidDependenciesModule = AndroidDependenciesModule(app)
-
             return DaggerAndroidDependenciesComponent.builder()
                 .androidDependenciesModule(androidDependenciesModule)
                 .build()

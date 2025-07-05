@@ -1,4 +1,4 @@
-package com.foodies.core_ui.ui.components.catalog.basic
+package com.foodies.core_ui.ui.components.basic
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
@@ -19,7 +19,7 @@ import androidx.navigation.NavController
 import com.foodies.core_ui.R
 import com.foodies.core_ui.model.TagInApp
 import com.foodies.core_ui.route.Route
-import com.foodies.core_ui.ui.components.catalog.other.FilterDialog
+import com.foodies.core_ui.ui.components.other.FilterDialog
 
 @Composable
 fun Header(

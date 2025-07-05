@@ -15,18 +15,6 @@ import dagger.Component
 )
 interface BasketComponent {
 
-    companion object {
-        fun init(
-            applicationProvider: ApplicationProvider
-        )
-                : BasketComponent {
-            return DaggerBasketComponent.factory()
-                .create(applicationProvider)
-
-        }
-
-    }
-
     @Component.Factory
     interface Factory {
         fun create(

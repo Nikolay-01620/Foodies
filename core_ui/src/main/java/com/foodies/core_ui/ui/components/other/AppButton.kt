@@ -1,4 +1,4 @@
-package com.foodies.details_feature.presentation.components
+package com.foodies.core_ui.ui.components.other
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -18,7 +18,6 @@ fun AppButton(
     onButtonClick: () -> Unit,
     text: String
 ) {
-
     Text(
         modifier = Modifier
             .fillMaxWidth()
