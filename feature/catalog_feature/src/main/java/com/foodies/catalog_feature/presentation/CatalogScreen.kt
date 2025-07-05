@@ -82,7 +82,6 @@ fun CatalogScreen(
             setSelectedCategory = { catalogViewModel.setSelectedCategory(it.toCategoryCatalog()) },
             selectedItem = selectedItem?.toCategory(),
             coroutineScope = coroutineScope,
-
             )
         Box(modifier = Modifier.weight(1f)) {
             ProductGrid(
